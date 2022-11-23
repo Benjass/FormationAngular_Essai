@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span routerLink="">Listeur Netflix</span>
+
+  <button *ngIf="isConnected$ | async" mat-icon-button (click)="logout()">
+    <mat-icon>power_settings_new</mat-icon>
+  </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

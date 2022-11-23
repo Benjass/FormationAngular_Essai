@@ -11,10 +11,17 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "displayBlock": true
+          "displayBlock": true,
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:application": {
           "strict": true
+        },
+        "@schematics/angular:service": {
+          "flat": false
+        },
+        "@schematics/angular:guard": {
+          "flat": false
         }
       },
       "root": "",
@@ -30,13 +37,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -98,13 +100,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }

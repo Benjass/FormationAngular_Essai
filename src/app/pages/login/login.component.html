@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Connexion</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form novalidate class="login-form" (ngSubmit)="login()" [formGroup]="form">
+      <button type="submit" [disabled]="!form.valid" [style.display]="'none'">
+        Valider le formulaire
+      </button>
+
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" matInput formControlName="username" />
+        <mat-error *ngIf="form.get('username')!.hasError('admin')">
+          Username must be "admin" in lowercase
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+        <mat-error *ngIf="form.get('password')!.hasError('invalid')">
+          Invalid password
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="login()"
+      [disabled]="!form.valid"
+    >
+      Connexion
+    </button>
+  </mat-card-actions>
+</mat-card>

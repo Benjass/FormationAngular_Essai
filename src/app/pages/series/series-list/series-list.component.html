@@ -1,0 +1,20 @@
+<button mat-raised-button color="primary" routerLink="add">
+  Add new Serie
+</button>
+
+<ng-container *ngFor="let serie of series$ | async">
+  <mat-card [appIsWatched]="serie" [routerLink]="['edit', serie.id]">
+    <mat-card-header>
+      <mat-card-title>
+        {{ serie.title }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <ng-container
+          *ngIf="serie.watched; then watchedTpl; else notWatchedTpl"
+        ></ng-container>
+        <ng-template #watchedTpl> Already watched </ng-template>
+        <ng-template #notWatchedTpl> Not watched yet </ng-template>
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</ng-container>
